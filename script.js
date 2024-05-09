@@ -38,6 +38,7 @@ function clickedBox(element){
         element.setAttribute("id", playerSign); 
         players.classList.add("active"); 
     }
+}
 
 
 function clickedBox (element){
@@ -108,3 +109,6 @@ function checkIdSign(val1, val2, val3, sign){
     }
 }
 
+function selectWinner() { //if one condition is matched select the winner
+    if(checkIdSign(1, 2, 3,playerSign) || checkIdSign(4, 5, 6,playerSign) || checkIdSign(7, 8, 9,playerSign) || checkIdSign(1, 4, 7,playerSign) || checkIdSign(2, 5, 8,playerSign) || checkIdSign(3, 6, 9,playerSign) || checkIdSign(1, 5, 9,playerSign) || checkIdSign(3, 5, 7,playerSign))
+}
