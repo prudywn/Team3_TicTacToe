@@ -26,6 +26,7 @@ selectBtnO.onclick = ()=>{
 }
 
 let playerOIcon = "far fa-circle"; 
+let playerXIcon = 'far fa-times'
 let playerSign = "X"; 
 let runBot = true; 
 
@@ -33,8 +34,11 @@ let runBot = true;
 
 function clickedBox (element){
     if (players.classList.contains('player')){
+        
         element.innerHTML = `<i class='${playerOIcon}'></i>`
-        players.classList.remove('active')
+        players.classList.add('active')
+        //if player select O then we'll change the playerSign value to O
+        playerSign = "O"
         element.setAttribute('id', playerSign)
     }else{
         element.innerHTML = `<i class='${playerXIcon}'></i>`
@@ -52,13 +56,9 @@ function clickedBox (element){
     }, randomTimeDelay)
     //once the player has clicked the box, the player will be switched
 }
-function bot(){
+function bot(runBot){
     let array = []
-    // if (players.classList.contains('player')){
-    //     playerSign = 'O'
-    // }else{
-    //     playerSign = 'X'
-    // }
+    
     if (runBot){
         playerSign = 'O'
     }
@@ -72,7 +72,7 @@ function bot(){
         if (players.classList.contains('player')){
             playerSign = 'X' //bot will be X
             allBox[randomBox].innerHTML = `<i class='${playerXIcon}'></i>`
-            players.classList.add('active')
+            players.classList.remove('active')
             allBox[randomBox].setAttribute('id', playerSign) //write the icon chosen in the box
         }
         else{
