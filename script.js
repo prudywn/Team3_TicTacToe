@@ -107,4 +107,4 @@ function checkIdSign(val1, val2, val3, sign){
         return true  //checking if there is a tripple match for any player
     }
 }
-
+}
