@@ -12,18 +12,21 @@ window.onload = ()=>{
     for (let i = 0; i < allBox.length; i++) { 
        allBox[i].setAttribute("onclick", "clickedBox(this)");
     }
+
+
+    selectBtnX.onclick = ()=>{
+       selectBox.classList.add("hide"); 
+       playBoard.classList.add("show"); 
+    }
+
+    selectBtnO.onclick = ()=>{ 
+       selectBox.classList.add("hide"); 
+       playBoard.classList.add("show");
+       players.setAttribute("class", "players active player"); 
+    }
 }
 
-selectBtnX.onclick = ()=>{
-    selectBox.classList.add("hide"); 
-    playBoard.classList.add("show"); 
-}
-
-selectBtnO.onclick = ()=>{ 
-    selectBox.classList.add("hide"); 
-    playBoard.classList.add("show");
-    players.setAttribute("class", "players active player"); 
-}
+// user click function
 
 let playerOIcon = "far fa-circle"; 
 let playerXIcon = 'far fa-times'
