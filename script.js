@@ -1,3 +1,45 @@
+const selectBox = document.querySelector(".select-box"),
+selectBtnX = selectBox.querySelector(".options .playerX"),
+selectBtnO = selectBox.querySelector(".options .playerO"),
+playBoard = document.querySelector(".play-board"),
+players = document.querySelector(".players");
+
+
+window.onload = ()=>{ 
+    for (let i = 0; i < allBox.length; i++) { 
+       allBox[i].setAttribute("onclick", "clickedBox(this)");
+    }
+}
+
+selectBtnX.onclick = ()=>{
+    selectBox.classList.add("hide"); 
+    playBoard.classList.add("show"); 
+}
+
+selectBtnO.onclick = ()=>{ 
+    selectBox.classList.add("hide"); 
+    playBoard.classList.add("show");
+    players.setAttribute("class", "players active player"); 
+}
+
+let playerOIcon = "far fa-circle"; 
+let playerSign = "X"; 
+let runBot = true; 
+
+// user click function
+function clickedBox(element){
+    if(players.classList.contains("player")){
+        playerSign = "O"; 
+        element.innerHTML = `<i class="${playerOIcon}"></i>`; 
+        players.classList.remove("active"); 
+        element.setAttribute("id", playerSign);
+    }else{
+        element.innerHTML = `<i class="${playerXIcon}"></i>`; 
+        element.setAttribute("id", playerSign); 
+        players.classList.add("active"); 
+    }
+
+
 function clickedBox (element){
     if (players.classList.contains('player')){
         element.innerHTML = `<i class='${playerOIcon}'></i>`
