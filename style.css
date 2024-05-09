@@ -1,0 +1,35 @@
+
+
+/* line 121 */
+.result-box{
+    background:#fff;
+    padding:20px;
+    border-radius: 5px;
+    max-width:350px;
+    width:100%;
+}
+.result-box .won-text{
+    font-size: 25px;
+    display:flex;
+}
+.result-box .won-text p{
+    font-weight:600;
+    margin: 0 3px;
+}
+.result-box .btn{
+    display:flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+.result-box .btn button{
+    font-size: 18px;
+    font-weight:500;
+    padding: 8px 20px;
+    border: none;
+    outline:none;
+    background:#56baed;
+    border-radius:5px;
+    color:#fff;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
