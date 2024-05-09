@@ -21,3 +21,9 @@ function clickedBox (element){
 function getIdVal(classname){
     return document.querySelector('.box' + classname).id
 }
+
+function checkIdSign(val1, val2, val3, sign){
+    if (getIdVal(val1) == sign && getIdVal(val2) == sign && getIdVal(val3) == sign){
+        return true  //checking if there is a tripple match for any player
+    }
+}
