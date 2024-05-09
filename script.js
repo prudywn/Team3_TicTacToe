@@ -109,6 +109,33 @@ function checkIdSign(val1, val2, val3, sign){
     }
 }
 
-function selectWinner() { //if one condition is matched select the winner
-    if(checkIdSign(1, 2, 3,playerSign) || checkIdSign(4, 5, 6,playerSign) || checkIdSign(7, 8, 9,playerSign) || checkIdSign(1, 4, 7,playerSign) || checkIdSign(2, 5, 8,playerSign) || checkIdSign(3, 6, 9,playerSign) || checkIdSign(1, 5, 9,playerSign) || checkIdSign(3, 5, 7,playerSign))
+
+//Last part
+
+
+function selectWinner(){ //if the one of following winning combination match then select the winner
+    if(checkIdSign(1,2,3,playerSign) || checkIdSign(4,5,6, playerSign) || checkIdSign(7,8,9, playerSign) || checkIdSign(1,4,7, playerSign) || checkIdSign(2,5,8, playerSign) || checkIdSign(3,6,9, playerSign) || checkIdSign(1,5,9, playerSign) || checkIdSign(3,5,7, playerSign)){
+        runBot = false; //passing the false boolen value to runBot so bot won't run again
+        bot(runBot); //calling bot function
+        setTimeout(()=>{ //after match won by someone then hide the playboard and show the result box after 700ms
+            resultBox.classList.add("show");
+            playBoard.classList.remove("show");
+        }, 700); //1s = 1000ms
+        wonText.innerHTML = `Player <p>${playerSign}</p> won the game!`;
+    }
+    else{ //if all boxes/element have id value and still no one win then draw the match
+    if(getIdVal(1) != "" && getIdVal(2) != "" && getIdVal(3) != "" && getIdVal(4) != "" && getIdVal(5) != "" && getIdVal(6) != "" && getIdVal(7) != "" && getIdVal(8) != "" && getIdVal(9) != ""){
+        runBot = false; //passing the false boolen value to runBot so bot won't run again
+        bot(runBot); //calling bot function
+        setTimeout(()=>{ //after match drawn then hide the playboard and show the result box after 700ms
+            resultBox.classList.add("show");
+            playBoard.classList.remove("show");
+        }, 700); //1s = 1000ms
+        wonText.textContent = "Match has been drawn!"; //displaying draw match text
+    }
+    }
+}
+
+replayBtn.onclick = ()=>{
+window.location.reload(); //reload the current page on replay button click
 }
