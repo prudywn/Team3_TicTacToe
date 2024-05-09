@@ -1,9 +1,12 @@
-const selectBox = document.querySelector(".select-box"),
-selectBtnX = selectBox.querySelector(".options .playerX"),
-selectBtnO = selectBox.querySelector(".options .playerO"),
-playBoard = document.querySelector(".play-board"),
-players = document.querySelector(".players");
-
+const selectBox = document.querySelector(".select-box")
+let selectBtnX = selectBox.querySelector(".options .playerX")
+let selectBtnO = selectBox.querySelector(".options .playerO")
+let playBoard = document.querySelector(".play-board")
+let players = document.querySelector(".players")
+let allBox = document.querySelectorAll("section span")
+let resultBox = document.querySelector(".result-box")
+let wonText = resultBox.querySelector(".won-text")
+let replayBtn = resultBox.querySelector("button")
 
 window.onload = ()=>{ 
     for (let i = 0; i < allBox.length; i++) { 
