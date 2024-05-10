@@ -108,8 +108,8 @@ body {
 }
 
 .play-board .details span {
-    background: #56baed;
-    color: #fff; 
+    background: fff;
+    color: #2f2c2c; 
     width: 100%;
     border-radius: 5px;
     padding: 7px 0;
@@ -165,8 +165,8 @@ body {
 .details .slider {
     position: absolute;
     top: 0;
-    left: 0%;
-    background: #56baed;
+    left: 0;
+    background: #346882;
     height: 100%;
     width: 50%;
     border-radius: 5px;

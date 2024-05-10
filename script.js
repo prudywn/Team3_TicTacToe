@@ -38,17 +38,17 @@ let runBot = true;
 function clickedBox (element){
     if (players.classList.contains('player')){
         
-        element.innerHTML = `<i class='${playerOIcon}'></i>`
+        element.innerHTML = `<i class='${playerOIcon}'></i>` //ading the O icon
         players.classList.add('active')
         //if player select O then we'll change the playerSign value to O
         playerSign = "O"
         element.setAttribute('id', playerSign)
     }else{
-        element.innerHTML = `<i class='${playerXIcon}'></i>`
+        element.innerHTML = `<i class='${playerXIcon}'></i>` //adding cross icon
         players.classList.add('active') //add the sign of the player if the player is active
         element.setAttribute('id', playerSign)
     }
-    selectWinner() //calling the select winner function
+    
     element.style.pointerEvents = 'none' //once box is clicked u cannot click again
     playBoard.style.pointerEvents = 'none'//so player cannot automatically click another box until the other player plays
     let randomTimeDelay = ((Math.random() * 1000) + 200).toFixed() //specified number of decimal places //delay for next player
