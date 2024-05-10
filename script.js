@@ -128,6 +128,11 @@ function selectWinner(){ //if the one of following winning combination match the
         wonText.textContent = "Match has been drawn!"; //displaying draw match text
     }
     }
+    showModal()
+}
+
+function showModal(){
+    document.querySelector('.overlay').style.display='flex'
 }
 
 replayBtn.onclick = ()=>{
