@@ -11,32 +11,30 @@ body {
     background: #56baed;
 }
 
-.select-box, .play-board .result-box {
+.select-box, .play-board, .result-box {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 40%;
+    left: 40%;
     transform: translate(-50% -50%);
     transition:all 0.3s ease;
 }
 
 .select-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background: #fff;
     padding: 20px 25px 25px;
     border-radius: 5px;
     max-width: 330px;
     width: 100%;
-    display: none;
+    
+    
    
 }
-.select-box.hidden{
+.select-box.hide{
     opacity:0;
     pointer-events:none;
     transform:translate(-50%, -50%)scale(0.9);
 }
+
 .select-box header {
     font-size: 23px;
     font-weight: 600;
@@ -48,6 +46,12 @@ body {
     font-size: 18px;
     font-weight: 500;
     margin: 20px 0;;   
+}
+
+.select-box .options{
+    display: flex;
+    width: 100%;
+    
 }
 
 .options button {
@@ -62,9 +66,11 @@ body {
     color: #fff;
     cursor: pointer;
     transition: all 0.3s ease;
+    
 }
 
-.options button:hover {
+.options button:hover,
+.result-box .btn button:hover{
     transform: scale(0.96);
 }
 
@@ -85,6 +91,7 @@ body {
     opacity:1;
     pointer-events:auto;
     transform:translate(-50%,-50%)scale(1);
+    
 }
 
 .play-board .details {
@@ -115,23 +122,6 @@ body {
     transition:all 0.3s ease;
 }
 
-.details span:first-child {
-    color: #fff;
-
-}
-
-.details .slider {
-    position: absolute;
-    top: 0;
-    left: 0%;
-    background: #56baed;
-    height: 100%;
-    width: 50%;
-    border-radius: 5px;
-    z-index: 2;
-    transition:all 0.3s ease;
-}
-
 .players.active span:first-child{
     color:#56baed;
 }
@@ -153,7 +143,7 @@ body {
 
 }
 
-.play-board section span {
+.play-area section span {
     display: block;
     margin: 2px;
     height: 80px;
@@ -167,6 +157,26 @@ body {
 }
 
 
+.details span:first-child {
+    color: #fff;
+
+}
+
+.details .slider {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    background: #56baed;
+    height: 100%;
+    width: 50%;
+    border-radius: 5px;
+    z-index: 2;
+    transition:all 0.3s ease;
+}
+
+
+
+
 
 /* line 121 */
 .result-box{
@@ -175,14 +185,17 @@ body {
     border-radius: 5px;
     max-width:350px;
     width:100%;
+    display: none;
 }
 .result-box .won-text{
     font-size: 25px;
     display:flex;
+    justify-content: center;
 }
 .result-box .won-text p{
     font-weight:600;
-    margin: 0 3px;
+    margin: 0 5px;
+
 }
 .result-box .btn{
     display:flex;
