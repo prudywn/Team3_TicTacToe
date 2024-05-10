@@ -1,12 +1,12 @@
 const selectBox = document.querySelector(".select-box"),
 selectBtnX = selectBox.querySelector(".options .playerX"),
-selectBtnO = selectBox.querySelector(".options .playerO");
-let playBoard = document.querySelector(".play-board")
-let players = document.querySelector(".players")
-let allBox = document.querySelectorAll("section span");
-let resultBox = document.querySelector(".result-box")
-let wonText = resultBox.querySelector(".won-text")
-replayBtn = resultBox.querySelector("button")
+selectBtnO = selectBox.querySelector(".options .playerO"),
+playBoard = document.querySelector(".play-board"),
+players = document.querySelector(".players"),
+allBox = document.querySelectorAll("section span"),
+resultBox = document.querySelector(".result-box"),
+wonText = resultBox.querySelector(".won-text"),
+replayBtn = resultBox.querySelector("button");
 
 window.onload = ()=>{ 
     for (let i = 0; i < allBox.length; i++) { 
@@ -30,33 +30,33 @@ window.onload = ()=>{
 
 let playerOIcon = "fas fa-circle"; 
 let playerXIcon = 'fas fa-times';
-let playerSign = "X"; 
+let playerSign = 'X'; 
 let runBot = true; 
 
 // user click function
 
 function clickedBox (element){
     if (players.classList.contains('player')){
-        
+        playerSign = "O"
         element.innerHTML = `<i class='${playerOIcon}'></i>` //ading the O icon
         players.classList.add('active')
         //if player select O then we'll change the playerSign value to O
-        playerSign = "O"
+        
         element.setAttribute('id', playerSign)
     }else{
         element.innerHTML = `<i class='${playerXIcon}'></i>` //adding cross icon
         players.classList.add('active') //add the sign of the player if the player is active
+        playerSign = "X"
         element.setAttribute('id', playerSign)
     }
-    
+    selectWinner()
+    playBoard.style.pointerEvents = 'none'
     element.style.pointerEvents = 'none' //once box is clicked u cannot click again
-    playBoard.style.pointerEvents = 'none'//so player cannot automatically click another box until the other player plays
+    //so player cannot automatically click another box until the other player plays
     let randomTimeDelay = ((Math.random() * 1000) + 200).toFixed() //specified number of decimal places //delay for next player
     setTimeout(()=>{
-        // playBoard.style.pointerEvents = 'auto'
-        // playerSign = 'X'
         bot(runBot)// calling bot function
-    }, randomTimeDelay)
+    },  randomTimeDelay)
     //once the player has clicked the box, the player will be switched
 }
 function bot(runBot){
@@ -70,6 +70,7 @@ function bot(runBot){
             array.push(i)
         }
     }
+
     let randomBox = array[Math.floor(Math.random() * array.length)]
     if (array.length > 0){
         if (players.classList.contains('player')){
@@ -79,6 +80,7 @@ function bot(runBot){
             allBox[randomBox].setAttribute('id', playerSign) //write the icon chosen in the box
         }
         else{
+            playerSign = 'O'
             allBox[randomBox].innerHTML = `<i class='${playerOIcon}'></i>`
             players.classList.remove('active')
             allBox[randomBox].setAttribute('id', playerSign)
@@ -97,17 +99,15 @@ function getIdVal(classname){
 }
 
 function checkIdSign(val1, val2, val3, sign){
-    if (getIdVal(val1) == sign && getIdVal(val2) == sign && getIdVal(val3) == sign){
+    if (getIdVal(val1) === sign && getIdVal(val2) === sign && getIdVal(val3) === sign){
         return true  //checking if there is a tripple match for any player
     }
+    
 }
-
-
 //Last part
-
-
 function selectWinner(){ //if the one of following winning combination match then select the winner
     if(checkIdSign(1,2,3,playerSign) || checkIdSign(4,5,6, playerSign) || checkIdSign(7,8,9, playerSign) || checkIdSign(1,4,7, playerSign) || checkIdSign(2,5,8, playerSign) || checkIdSign(3,6,9, playerSign) || checkIdSign(1,5,9, playerSign) || checkIdSign(3,5,7, playerSign)){
+        console.log(playerSign)
         runBot = false; //passing the false boolen value to runBot so bot won't run again
         bot(runBot); //calling bot function
         setTimeout(()=>{ //after match won by someone then hide the playboard and show the result box after 700ms
@@ -121,8 +121,9 @@ function selectWinner(){ //if the one of following winning combination match the
         runBot = false; //passing the false boolen value to runBot so bot won't run again
         bot(runBot); //calling bot function
         setTimeout(()=>{ //after match drawn then hide the playboard and show the result box after 700ms
-            resultBox.classList.add("show");
             playBoard.classList.remove("show");
+            resultBox.classList.add("show");
+            
         }, 700); //1s = 1000ms
         wonText.textContent = "Match has been drawn!"; //displaying draw match text
     }
