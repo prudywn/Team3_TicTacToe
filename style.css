@@ -9,7 +9,7 @@
 
 body {
     background-image:url(/img/vertical-aesthetic-background-with-3d-effect.jpg);
-    background-size:inherit
+    background-size:cover;
 }
 
 .select-box, .play-board, .result-box {
