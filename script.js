@@ -46,7 +46,7 @@ function clickedBox (element){
     }else{
         element.innerHTML = `<i class='${playerXIcon}'></i>` //adding cross icon
         players.classList.add('active') //add the sign of the player if the player is active
-        playerSign = "X"
+        // playerSign = "X"
         element.setAttribute('id', playerSign)
     }
     selectWinner()
@@ -64,7 +64,7 @@ function bot(runBot){
     
     if (runBot){
         playerSign = 'O'
-    }
+    
     for (let i = 0; i < allBox.length; i++){
         if (allBox[i].childElementCount == 0){
             array.push(i)
@@ -91,7 +91,7 @@ function bot(runBot){
         playBoard.style.pointerEvents = 'auto'
         playerSign = 'X'
         //once the player has clicked the box, the player will be switched
-
+    }
 }
 
 function getIdVal(classname){
