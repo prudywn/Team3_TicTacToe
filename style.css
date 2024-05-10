@@ -14,20 +14,20 @@ body {
 
 .select-box, .play-board, .result-box {
     position: absolute;
-    top: 40%;
-    left: 40%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50% -50%);
     transition:all 0.3s ease;
 }
 
 .select-box {
-    background: #fff;
+    background: wheat;
     padding: 20px 25px 25px;
     border-radius: 5px;
     max-width: 330px;
-    width: 100%;
-    
-    
+    position: absolute;
+    top: 40%;
+    left: 40%;
    
 }
 .select-box.hide{
@@ -183,7 +183,7 @@ body {
 
 /* line 121 */
 .result-box{
-    background:#fff;
+    background:rgb(252, 119, 119, 0.8);
     padding:20px;
     border-radius: 5px;
     max-width:350px;
